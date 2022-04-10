@@ -1,48 +1,48 @@
-const { Datatypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const { sequelize } = require('../utils/database');
 
 const User = sequelize.define('user', {
-    id: {
-        primaryKey: true,
+    id: {// cada modelo siempre debe trener su identificador, que suele ser escrito id:  
+        primaryKey: true,// la llave primaria permite acceder a los atributos de nuestro modelo e importarlos en otros modelos y relacionarlos con las otras tablas
         autoIncrement: true,
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     name: {
-        type: Datatypes.STRING(50),
-        allowNull: false
+        type: DataTypes.STRING(50),
+        allowNull: false 
     },
     email: {
-        type: Datatypes.STRING(100),
+        type: DataTypes.STRING(100),
         unique: true,
         allowNull: false
     },
     password: {
-        type: Datatypes.STRING(100),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     raiting: {
-        type: Datatypes.INTEGER(1),
+        type: DataTypes.INTEGER(1),
         defaultValue: 0,
     },
     birthDate: {
-        type: Datatypes.DATE,
+        type: DataTypes.DATE,
         allowNull: false
     },
     address: {
-        type: Datatypes.STRING(100),
+        type: DataTypes.STRING(100),
         allowNull: false,
     },
     phone: {
-        type: Datatypes.INTEGER(10),
+        type: DataTypes.INTEGER(10),
         allowNull: false,
     },
     role: {
-        type: Datatypes.STRING(10),
+        type: DataTypes.STRING(10),
         defaultValue: 'user'
     },
     status: {
-        type: Datatypes.STRING(20),
+        type: DataTypes.STRING(20),
         // active | deleted
         defaultValue: 'active'
     }
